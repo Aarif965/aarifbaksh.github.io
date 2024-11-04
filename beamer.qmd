@@ -116,6 +116,6 @@ ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm)) +
 
 ## My CV
 
-\href{Aarif_CV.pdf}{Here is a link to my CV}
+\href{https://github.com/Aarif965/aarifbaksh.github.io/blob/main/Aarif_CV.pdf}{Here is a link to my CV}
 
 
