@@ -1,7 +1,7 @@
 # My Github Page!
 
-We have got 2 sets of slides for this assignment:
+Below is some information about me, in two different formats.
 
-The [first one](beamer.pdf) is pdf, uses beamer,
+The [first one](beamer.pdf) is pdf, uses beamer.
 
-The [second one](reveal.html) is html, built using revealjs,
+The [second one](reveal.html) is html, built using revealjs.
