@@ -1,0 +1,116 @@
+---
+title: "About Me"
+author: "Aarif Baksh"
+date: today
+format: revealjs
+---
+
+## Introduction
+
+Hi! I am Aarif and here are some facts about me:
+
+-   My birthday is on June 4th.
+-   I was born and raised in Guyana, South America.
+-   I am currently in the first year of the PhD in Statistics program at UNL and expect to graduate in 2028.
+
+## Animal Picture
+
+Cockatiels are my favorite animal. I've had my pet cockatiel, Crissy, for 9 years
+
+![A Cockatiel](Animalpic.jpg){width="50%"}
+
+## Favorite Plot
+
+My favorite plot is my ugly plot I created in class!
+
+```{r}
+if (!"palmerpenguins" %in% installed.packages()) {
+  remotes::install_github("allisonhorst/palmerpenguins")
+}
+if (!require("ggthemes", quietly = TRUE)) {
+  install.packages("ggthemes")
+}
+library(ggthemes)
+library(palmerpenguins)
+library(ggplot2)
+library(gridExtra)
+library(scales)
+
+# Creating the ugliest plot I can think of!
+ggplot(penguins, aes(x = body_mass_g, y = bill_length_mm)) +
+  # Add a gradient background
+  annotate("rect", xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf,
+           fill = "yellow", alpha = 0.3) +  
+  # Add unnecessary grid lines
+  geom_vline(xintercept = seq(2500, 6500, by = 250), 
+             color = "pink", linewidth = 0.5, linetype = "dashed") +
+  geom_hline(yintercept = seq(30, 60, by = 2), 
+             color = "lightgreen", linewidth = 0.5, linetype = "dotted") +
+  # Add points with different shapes and colors
+  geom_point(aes(shape = species, color = species, size = flipper_length_mm),
+             alpha = 0.7) +
+  #Place unecessary text labels
+  # Use an awful color scheme
+  scale_color_manual(values = c("red", "green", "blue")) +
+  # Similar point shapes
+  scale_shape_manual(values = c(9, 10, 11)) +
+  # Varying point sizes
+  scale_size_continuous(range = c(1, 10)) +
+  # Add a smoothing line that doesn't make sense along with the confidence interval! 
+  geom_smooth(method = "lm", 
+             color = "orange", 
+             linewidth = 2, se = TRUE) +
+  # Use a basic system font and rotate labels
+  theme(
+    text = element_text(family = "serif"),  
+    plot.title = element_text(size = 24, 
+                            face = "bold", 
+                            color = "red",
+                            hjust = 0.5),
+    plot.subtitle = element_text(size = 16, 
+                               color = "purple",
+                               hjust = 0.5),
+    axis.text.x = element_text(angle = 45, 
+                             color = "darkgreen",
+                             size = 12),
+    axis.text.y = element_text(angle = 45,
+                             color = "blue",
+                             size = 12),
+    legend.text = element_text(size = 10,
+                             color = "red"),
+    legend.title = element_text(size = 12,
+                              color = "darkblue",
+                              face = "bold"),
+    strip.text = element_text(size = 14,
+                            color = "purple",
+                            face = "bold"),
+    panel.background = element_rect(fill = "lightpink"),
+    panel.grid.major = element_line(color = "yellow",
+                                  linewidth = 1.5),  
+    panel.grid.minor = element_line(color = "orange",
+                                  linewidth = 0.5),  
+    legend.background = element_rect(fill = "lightyellow"),
+    legend.key = element_rect(fill = "lightgreen")
+  ) +
+  # Add unnecessary labels
+  labs(title = "🐧 SUPER AWESOME PENGUIN STATISTICS!!! 🐧",
+       subtitle = "A Very Scientific Analysis of Penguin Measurements",
+       x = "Body Mass (g) 🏋️‍♂️",
+       y = "Bill Length (mm) 📏",
+       color = "PENGUIN SPECIES!!!",
+       shape = "PENGUIN SPECIES!!!",
+       size = "Flipper Length") +
+  # Add borders around everything
+  theme(
+    plot.background = element_rect(color = "purple", linewidth = 2, fill = NA),  
+    panel.border = element_rect(color = "red", linewidth = 2, fill = NA)  
+  )
+
+```
+
+
+## My CV
+
+
+[Click here for my CV](Aarif_CV.pdf)
+
